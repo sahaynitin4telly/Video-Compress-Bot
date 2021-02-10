@@ -38,7 +38,7 @@ from bot.helper_funcs.display_progress import (
 
 from pyrogram import Client, filters
 from pyrogram.handlers import MessageHandler, CallbackQueryHandler
-from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 
 from bot.helper_funcs.utils import(
@@ -51,7 +51,7 @@ CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
         
-async def incoming_start_message_f(bot, update, msg):
+async def incoming_start_message_f(bot, update, msg: Message):
     """/start command"""
     if not await db.is_user_exist(update.chat.id):
         await db.add_user(update.chat.id)
