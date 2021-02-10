@@ -22,7 +22,8 @@ from bot import (
   LOG_CHANNEL,
   UPDATES_CHANNEL,
   DATABASE_URL,
-  SESSION_NAME
+  SESSION_NAME,
+  BANNED_USERS
 )
 from bot.helper_funcs.ffmpeg import (
   convert_video,
@@ -54,6 +55,13 @@ async def incoming_start_message_f(bot, update):
     """/start command"""
     if not await db.is_user_exist(update.chat.id):
         await db.add_user(update.chat.id)
+    if message.chat.id in Config.BANNED_USERS:
+        await client.send_message(
+            chat_id=message.chat.id,
+            text="**You are banned 🚫 to use me 🤭. Contact @Mr_Developer_Support**",
+            reply_to_message_id=message.message_id
+        )
+        return
     update_channel = UPDATES_CHANNEL
     if update_channel:
         try:
