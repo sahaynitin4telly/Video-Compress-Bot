@@ -47,6 +47,11 @@
       "value": "715779594",
       "required": false
     },
+    "BANNED_USERS": {
+      "description": "Users That are not allowed to use this. Separate with Space.",
+      "value": "",
+      "required": false
+    },
     "FINISHED_PROGRESS_STR": {
       "description": "Should be a single character.",
       "required": false
