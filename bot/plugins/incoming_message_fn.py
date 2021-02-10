@@ -56,11 +56,11 @@ async def incoming_start_message_f(bot, update):
     if not await db.is_user_exist(update.chat.id):
         await db.add_user(update.chat.id)
     ##Force Sub##
-    if message.chat.id in Config.BANNED_USERS:
-        await client.send_message(
-            chat_id=message.chat.id,
+    if msg.chat.id in Config.BANNED_USERS:
+        await bot.send_message(
+            chat_id=msg.chat.id,
             text="**You are banned 🚫 to use me 🤭. Contact @Mr_Developer_Support**",
-            reply_to_message_id=message.message_id
+            reply_to_message_id=msg.message_id
         )
         return
     update_channel = UPDATES_CHANNEL
