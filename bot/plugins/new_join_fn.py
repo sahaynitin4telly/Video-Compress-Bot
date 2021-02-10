@@ -9,7 +9,6 @@ from bot import (
     UPDATES_CHANNEL,
     DATABASE_URL,
     SESSION_NAME,
-    BANNED_USERS
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
