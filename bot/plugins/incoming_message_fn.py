@@ -23,8 +23,8 @@ from bot import (
   UPDATES_CHANNEL,
   DATABASE_URL,
   SESSION_NAME,
-  BANNED_USERS
 )
+from bot.config import Config
 from bot.helper_funcs.ffmpeg import (
   convert_video,
   media_info,
