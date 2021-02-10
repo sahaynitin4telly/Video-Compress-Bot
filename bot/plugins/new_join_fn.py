@@ -21,18 +21,18 @@ broadcast_ids = {}
 
 async def new_join_f(client, message):
     # delete all other messages, except for AUTH_USERS
-    await msg.delete(revoke=True)
+    await message.delete(revoke=True)
     # reply the correct CHAT ID,
     # and LEAVE the chat
     chat_type = message.chat.type
     if chat_type != "private":
-        await msg.reply_text(
+        await message.reply_text(
             Localisation.WRONG_MESSAGE.format(
-                CHAT_ID=msg.chat.id
+                CHAT_ID=message.chat.id
             )
         )
         # leave chat
-        await msg.chat.leave()
+        await message.chat.leave()
 
 
 async def help_message_f(client, message):
