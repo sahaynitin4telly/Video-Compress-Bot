@@ -13,6 +13,7 @@ from bot import (
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
+from bot.config import Config
 
 db = Database(DATABASE_URL, SESSION_NAME)
 CURRENT_PROCESSES = {}
