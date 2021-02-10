@@ -21,29 +21,29 @@ broadcast_ids = {}
 
 async def new_join_f(client, message):
     # delete all other messages, except for AUTH_USERS
-    await message.delete(revoke=True)
+    await msg.delete(revoke=True)
     # reply the correct CHAT ID,
     # and LEAVE the chat
     chat_type = message.chat.type
     if chat_type != "private":
-        await message.reply_text(
+        await msg.reply_text(
             Localisation.WRONG_MESSAGE.format(
-                CHAT_ID=message.chat.id
+                CHAT_ID=msg.chat.id
             )
         )
         # leave chat
-        await message.chat.leave()
+        await msg.chat.leave()
 
 
 async def help_message_f(client, message):
     if not await db.is_user_exist(message.chat.id):
         await db.add_user(message.chat.id)
     ## Force Sub ##
-    if message.chat.id in Config.BANNED_USERS:
+    if msg.chat.id in Config.BANNED_USERS:
         await client.send_message(
-            chat_id=message.chat.id,
+            chat_id=msg.chat.id,
             text="**You are banned 🚫 to use me 🤭. Contact @Mr_Developer_Support**",
-            reply_to_message_id=message.message_id
+            reply_to_message_id=msg.message_id
         )
         return
     update_channel = UPDATES_CHANNEL
