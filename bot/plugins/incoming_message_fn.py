@@ -51,7 +51,7 @@ CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
         
-async def incoming_start_message_f(bot, update, msg: Message):
+async def incoming_start_message_f(bot, update, msg):
     """/start command"""
     if not await db.is_user_exist(update.chat.id):
         await db.add_user(update.chat.id)
