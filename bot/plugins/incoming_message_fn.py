@@ -52,12 +52,12 @@ CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
         
-async def incoming_start_message_f(bot, update, message: Message):
+async def incoming_start_message_f(bot, update):
     """/start command"""
     if not await db.is_user_exist(update.chat.id):
         await db.add_user(update.chat.id)
     ##Force Sub##
-    if message.chat.id in Config.BANNED_USERS:
+    if update.chat.id in Config.BANNED_USERS:
         await bot.send_message(
             chat_id=message.chat.id,
             text="**You are banned 🚫 to use me 🤭. Contact @Mr_Developer_Support**",
