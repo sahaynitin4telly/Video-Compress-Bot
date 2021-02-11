@@ -43,7 +43,7 @@ class Localisation:
     
     USER_ADDED_TO_DB = "User <a href='tg://user?id={}'>{}</a> added to {} till {}."
     
-    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "⚠️ Already one Process going on! ⚠️ \n\n**Check Live Status on [Updates Channel](https://t.me/MD_Compress_Status).**"
+    FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS = "⚠️ Already one Process going on! ⚠️ \n\n<b>Check Live Status on Updates Channel<a href='https://t.me/MD_Compress_Status'></a>.</b>"
     
     HELP_MESSAGE = get_config(
         "STRINGS_HELP_MESSAGE",
