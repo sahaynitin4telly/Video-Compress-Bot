@@ -35,6 +35,11 @@ from bot.helper_funcs.display_progress import (
   TimeFormatter,
   humanbytes
 )
+from bot import (
+    FINISHED_PROGRESS_STR,
+    UN_FINISHED_PROGRESS_STR,
+    DOWNLOAD_LOCATION
+)
 
 from pyrogram import Client, filters
 from pyrogram.handlers import MessageHandler, CallbackQueryHandler
