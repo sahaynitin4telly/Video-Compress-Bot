@@ -201,7 +201,7 @@ async def incoming_compress_message_f(bot, update):
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
-    download_start = await bot.send_message(chat_id, f"**Bot Become Busy Now !!**\n Used Percentage `{target_percentage}` \n\nDownload Started at `{now}`", parse_mode="markdown")
+    download_start = await bot.send_message(chat_id, f"**Bot Become Busy Now !!**\n\n "[{0}{1}] \n📊 <b>Progress:</b> {2}%\n".format( ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]), ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))]), round(percentage, 2)) \n\nDownload Started at `{now}`", parse_mode="markdown")
     try:
       d_start = time.time()
       status = DOWNLOAD_LOCATION + "/status.json"
