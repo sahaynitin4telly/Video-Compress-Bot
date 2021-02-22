@@ -206,6 +206,8 @@ async def incoming_compress_message_f(bot, update, current, total, start):
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
+    now2 = time.time()
+    diff = now2 - start
     percentage = current * 100 / total
     speed = current / diff
     eta = round((total - current) / speed)
@@ -326,6 +328,8 @@ async def incoming_compress_message_f(bot, update, current, total, start):
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
+    now2 = time.time()
+    diff = now2 - start
     percentage = current / total * 100
     speed = round(current / diff, 2)
     eta = round((total - current) / speed)
