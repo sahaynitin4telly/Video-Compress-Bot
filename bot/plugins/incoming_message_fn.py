@@ -16,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 from bot.database import Database
 import os, time, asyncio, json
 from bot.localisation import Localisation
+import math
 from bot import (
   DOWNLOAD_LOCATION, 
   AUTH_USERS,
