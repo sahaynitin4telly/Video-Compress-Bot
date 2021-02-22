@@ -118,7 +118,13 @@ async def incoming_start_message_f(bot, update):
         reply_to_message_id=update.message_id,
     )
     
-async def incoming_compress_message_f(bot, update, current, total, start):
+async def incoming_compress_message_f(
+    bot, 
+    update, 
+    current, 
+    total, 
+    start
+):
   """/compress command"""
   if not await db.is_user_exist(update.chat.id):
       await db.add_user(update.chat.id)
