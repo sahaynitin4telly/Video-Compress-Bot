@@ -218,7 +218,7 @@ async def incoming_compress_message_f(bot, update):
     **📊 Process Status 📊**`\n {prog_str}`\n\n
     Download Started at `{now}`\n
     **Progress Speed 🚀 :** `{humanbytes(speed)}`\n
-    **ETA ⏰ :** `{time_formatter(eta)}`",
+    **ETA ⏰ :** `{time_formatter(eta)}`""",
     parse_mode="markdown")
     try:
       d_start = time.time()
@@ -326,8 +326,21 @@ async def incoming_compress_message_f(bot, update):
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
+    percentage = downloaded / file_size * 100
+    speed = round(downloaded / diff, 2)
+    eta = round((file_size - downloaded) / speed)
+    prog_str = "`[{0}{1}] {2}%`".format(
+        "".join("▰" for i in range(math.floor(percentage / 10))),
+        "".join("▱" for i in range(10 - math.floor(percentage / 10))),
+        round(percentage, 2),
+    )
     await download_start.delete()
-    compress_start = await bot.send_message(chat_id, f"**Compressing Video 🎥 ...** \n Used Percentage `{target_percentage}`℅\n\nProcess Started at `{now}`", parse_mode="markdown")
+    compress_start = await bot.send_message(chat_id, f"""**Compressing Video 🎥 ...**\n\n
+    **📊 Process Status 📊**`\n {prog_str}`\n\n
+    Download Started at `{now}`\n
+    **Progress Speed 🚀 :** `{humanbytes(speed)}`\n
+    **ETA ⏰ :** `{time_formatter(eta)}`""",
+    parse_mode="markdown")
     await sent_message.edit_text(                    
       text=Localisation.COMPRESS_START                    
     )
