@@ -206,9 +206,9 @@ async def incoming_compress_message_f(bot, update):
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
-    percentage = downloaded / file_size * 100
-    speed = round(downloaded / diff, 2)
-    eta = round((file_size - downloaded) / speed)
+    percentage = current * 100 / total
+    speed = current / diff
+    eta = round((total - current) / speed)
     prog_str = "`[{0}{1}] {2}%`".format(
         "".join("▰" for i in range(math.floor(percentage / 10))),
         "".join("▱" for i in range(10 - math.floor(percentage / 10))),
@@ -326,9 +326,9 @@ async def incoming_compress_message_f(bot, update):
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
-    percentage = downloaded / file_size * 100
-    speed = round(downloaded / diff, 2)
-    eta = round((file_size - downloaded) / speed)
+    percentage = current / total * 100
+    speed = round(current / diff, 2)
+    eta = round((total - current) / speed)
     prog_str = "`[{0}{1}] {2}%`".format(
         "".join("▰" for i in range(math.floor(percentage / 10))),
         "".join("▱" for i in range(10 - math.floor(percentage / 10))),
