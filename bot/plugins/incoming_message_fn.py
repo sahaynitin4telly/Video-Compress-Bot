@@ -48,6 +48,9 @@ from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboard
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 
+
+start = time.time()
+
 from bot.helper_funcs.utils import(
   delete_downloads
 )
