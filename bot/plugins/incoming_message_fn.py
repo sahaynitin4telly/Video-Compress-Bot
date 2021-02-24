@@ -208,11 +208,12 @@ async def incoming_start_message_f(bot, update):
         reply_to_message_id=update.message_id,
     )
     
-async def incoming_compress_message_f(bot, update, start):
+async def incoming_compress_message_f(bot, update):
   """/compress command"""
   if not await db.is_user_exist(update.chat.id):
       await db.add_user(update.chat.id)
   update_channel = UPDATES_CHANNEL
+  start = time.time()
   if update_channel:
       try:
           user = await bot.get_chat_member(update_channel, update.chat.id)
@@ -293,6 +294,7 @@ async def incoming_compress_message_f(bot, update, start):
     utc_now = datetime.datetime.utcnow()
     ist_now = utc_now + datetime.timedelta(minutes=30, hours=5)
     ist = ist_now.strftime("%d/%m/%Y, %H:%M:%S")
+    start = time.time()
     bst_now = utc_now + datetime.timedelta(minutes=00, hours=6)
     bst = bst_now.strftime("%d/%m/%Y, %H:%M:%S")
     now = f"\n{ist} (GMT+05:30)`\n`{bst} (GMT+06:00)"
