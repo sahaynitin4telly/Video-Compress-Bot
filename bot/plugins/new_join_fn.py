@@ -41,9 +41,9 @@ async def help_message_f(client, message):
     ## Force Sub ##
     if msg.chat.id in Config.BANNED_USERS:
         await client.send_message(
-            chat_id=msg.chat.id,
+            chat_id=message.chat.id,
             text="**You are banned 🚫 to use me 🤭. Contact @Mr_Developer_Support**",
-            reply_to_message_id=msg.message_id
+            reply_to_message_id=message.message_id
         )
         return
     update_channel = UPDATES_CHANNEL
