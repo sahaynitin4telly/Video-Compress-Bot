@@ -49,6 +49,7 @@ db = Database(DATABASE_URL, SESSION_NAME)
 CURRENT_PROCESSES = {}
 CHAT_FLOOD = {}
 broadcast_ids = {}
+2_Bot = "MDCompressProBot"
         
 async def incoming_start_message_f(bot, update):
     """/start command"""
@@ -254,6 +255,9 @@ async def incoming_compress_message_f(bot, update):
         text=Localisation.FF_MPEG_RO_BOT_STOR_AGE_ALREADY_EXISTS,
         reply_markup=InlineKeyboardMarkup(
             [
+                [
+                    InlineKeyboardButton('Use Another Bot 🤖 To Compress 🚀', url=f'https://t.me/{2_Bot}')
+                ]
                 [
                     InlineKeyboardButton('Show Bot Status 😎', url=f'https://t.me/{LOG_CHANNEL}') # That's Username na ...
                 ]
